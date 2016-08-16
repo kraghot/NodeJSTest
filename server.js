@@ -3,18 +3,14 @@ var util 	= require("util");
 var url 	= require("url");
 
 
-function start(route){
+function start(route, handle){
 
 	function onRequest(request, response)
 	{
 		var pathname = url.parse(request.url).pathname;
 		util.log("Received request");
 
-		route(pathname);
-
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		response.write("Test");
-		response.end();
+		route(handle, pathname);
 	}
 
 	http.createServer(onRequest).listen(8000);
