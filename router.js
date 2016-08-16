@@ -1,13 +1,14 @@
-function route(pathname)
+function route(handle, pathname, response)
 {
 	console.log("URL : " + pathname);
 	if(typeof(handle[pathname]) === function) 
 	{
-		handle[pathname]();
+		handle[pathname](response);
 	}
 	else 
 	{
 		util.log("Unrecognized handle " + pathname);
+
 	}
 }
 

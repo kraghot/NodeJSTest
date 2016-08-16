@@ -10,7 +10,7 @@ function start(route, handle){
 		var pathname = url.parse(request.url).pathname;
 		util.log("Received request");
 
-		route(handle, pathname);
+		route(handle, pathname, response);
 	}
 
 	http.createServer(onRequest).listen(8000);
