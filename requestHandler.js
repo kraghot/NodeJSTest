@@ -1,17 +1,29 @@
-function start(response)
+var fs = require("fs");
+
+function start(response, postData)
 {
 	console.log("Start page");
-	response.writeHead(200, {"content-type": "text/plain"});
-	response.write("Start page");
+	// response.write("Start page");
+	// response.end();
+	response.writeHead(200, {"content-type": "text/html"});
+	
+	var body = fs.readFileSync("./views/index.html", "utf8");
+
+	response.write(body);	
 	response.end();
 }
 
 
-function upload(response)
+function upload(response, postData)
 {
 	console.log("Upload Page");
-	response.writeHead(200, {"content-type": "text/plain"});
-	response.write("Upload page");
+	response.writeHead(200, {"content-type": "text/html"});
+
+	var body = fs.readFileSync("./views/upload.html", "utf8");
+
+	response.write(body);
+
+	console.log(postData);
 	response.end();
 }
 

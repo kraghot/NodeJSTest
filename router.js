@@ -1,11 +1,11 @@
 var util = require("util");
 
-function route(handle, pathname, response)
+function route(handle, pathname, response, postData)
 {
 	console.log("URL : " + pathname);
 	if(typeof(handle[pathname]) === 'function')
 	{
-		handle[pathname](response);
+		handle[pathname](response, postData);
 	}
 	else
 	{
